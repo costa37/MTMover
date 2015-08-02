@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MTMover
 {
@@ -20,8 +21,12 @@ namespace MTMover
             
             //Begin of my code
 
+            //Begin: scan the folder with downloaded files
             //http://www.dotnetperls.com/path
             string locationfilepath = @"H:\Chrom Downloads\C#\For testing\locationfile";
+            string[] listofallfiles= Directory.GetFiles (locationfilepath, ".", SearchOption.AllDirectories); // First argument: Path; Second: Filter; Third: Directory level
+            string tempvariable = string.Join(Environment.NewLine, listofallfiles ); // Changes a string array into regular string with seperator (in this caase new line)
+            MessageBox.Show (tempvariable); // Shows the output as user message
 
 
 
